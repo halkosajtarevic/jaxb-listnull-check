@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>io.github.halko</groupId>
+    <artifactId>jaxb-listnull-check-example</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+    <packaging>jar</packaging>
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+    </properties>
+    <dependencies>
+        <dependency>
+            <groupId>org.jvnet.jaxb2_commons</groupId>
+            <artifactId>jaxb2-basics</artifactId>
+            <version>0.6.4</version>
+        </dependency>
+    </dependencies>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.jvnet.jaxb2.maven2</groupId>
+                <artifactId>maven-jaxb2-plugin</artifactId>
+                <version>0.13.1</version>
+                <executions>
+                    <execution>
+                        <id>codegen</id>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+                        <configuration>
+
+                            <encoding>UTF-8</encoding>
+                            <locale>en</locale>
+                            <forceRegenerate>true</forceRegenerate>
+                            <extension>true</extension>
+                            <strict>false</strict>
+                            <schemaDirectory>src/main/resources</schemaDirectory>
+                            <bindingDirectory>src/main/resources</bindingDirectory>
+                            <generateDirectory>${basedir}/target/generated-sources/maven-jaxb2-plugin</generateDirectory>
+                            <generatePackage>generated</generatePackage>
+                            <schemaIncludes>
+                                <include>example.xsd</include>
+                            </schemaIncludes>
+
+                            <args>
+                                <arg>-Xjaxb-listnull-check</arg>
+                            </args>
+                            <plugins>
+
+                                <plugin>
+                                    <groupId>io.github.halko</groupId>
+                                    <artifactId>jaxb-listnull-check</artifactId>
+                                    <version>1.0.0-SNAPSHOT</version>
+                                </plugin>
+                            </plugins>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+</project>

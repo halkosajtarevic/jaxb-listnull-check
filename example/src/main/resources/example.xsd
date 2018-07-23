@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2016 (x64) (http://www.altova.com) by Hans Holz (computer betting company GmbH) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+    <xs:element name="Example" type="Example"/>
+
+    <xs:complexType name="Example">
+        <xs:sequence>
+            <xs:element name="one" type="xs:long" minOccurs="0" maxOccurs="unbounded" nillable="true"/>
+            <xs:element name="two" type="xs:long" minOccurs="0" maxOccurs="unbounded" nillable="true"/>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>
